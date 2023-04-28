@@ -27,6 +27,22 @@ class CarService {
     }
     return new Car(car);
   }
+
+  public async updateCarById(id: string, body: ICar) {
+    const oneCarById = await this.getCarById(id);
+    if (!oneCarById) {
+      return null;
+    }
+    if (id.length !== 24) {
+      throw new AppError(422, 'Invalid mongo id');
+    }
+    const carModel = new CarModel();
+    const updatedCar = await carModel.update(id, body);
+    if (updatedCar) {
+      return new Car(updatedCar);
+    } 
+    throw new AppError(500, 'Failed to update car');
+  }
 }
 
 export default CarService;
