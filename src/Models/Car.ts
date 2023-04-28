@@ -16,6 +16,14 @@ class Car extends Abstract<ICar> {
 
     super(schema, 'Car');
   }
+
+  public async find(): Promise<ICar[]> {
+    return this.model.find();
+  }  
+
+  public async findById(id: string): Promise<ICar | null> {
+    return this.model.findById(id);
+  }
 }
 
 export default Car;
