@@ -9,7 +9,9 @@ class ErrorHandler {
     next: NextFunction,
   ) {
     const { status = 500, message } = error as AppError;
+
     res.status(status).json({ message });
+    
     next();
   }
 }

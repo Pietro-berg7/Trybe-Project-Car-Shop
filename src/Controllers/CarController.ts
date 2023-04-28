@@ -24,6 +24,7 @@ class CarController {
         doorsQty,
         seatsQty, 
       });
+
       return this.res.status(201).json(newCar);
     } catch (error) {
       this.next(error);
@@ -33,9 +34,11 @@ class CarController {
   public async getAllCars() {
     try {
       const allCars = await this.service.getAllCars();
+
       if (allCars.length === 0) {
         return this.res.status(204).send();
       }
+
       return this.res.status(200).json(allCars);
     } catch (error) {
       this.next(error);
@@ -45,9 +48,11 @@ class CarController {
   public async getCarById() {
     try {
       const oneCarById = await this.service.getCarById(this.req.params.id);
+
       if (oneCarById) {
         return this.res.status(200).json(oneCarById);
       } 
+
       return this.res.status(204).send();
     } catch (error) {
       this.next(error);
@@ -57,6 +62,7 @@ class CarController {
   public async updateCarById() {
     try {
       const updatedCar = await this.service.updateCarById(this.req.params.id, this.req.body);
+      
       return this.res.status(200).json(updatedCar);
     } catch (error) {
       this.next(error);

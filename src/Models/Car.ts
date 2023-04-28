@@ -1,8 +1,8 @@
 import { Schema, UpdateQuery } from 'mongoose';
-import Abstract from './Abstract';
+import AbstractODM from './AbstractODM';
 import ICar from '../Interfaces/ICar';
 
-class Car extends Abstract<ICar> {
+class Car extends AbstractODM<ICar> {
   constructor() {
     const schema = new Schema<ICar>({
       model: { type: String, required: true },
