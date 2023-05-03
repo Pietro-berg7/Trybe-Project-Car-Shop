@@ -1,4 +1,4 @@
-# Boas-vindas ao repositório do projeto Talker Manager!
+# Boas-vindas ao repositório do projeto Car Shop!
 
 <summary><strong>👨‍💻 O que foi desenvolvido</strong></summary><br />
 
